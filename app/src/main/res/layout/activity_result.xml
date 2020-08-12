@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ResultActivity">
+
+
+    <TextView
+        android:layout_width="281dp"
+        android:layout_height="17dp"
+        android:gravity="center"
+        android:text="Resultado"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.133" />
+
+
+    <TextView
+        android:layout_width="150dp"
+        android:layout_height="17dp"
+        android:text="Salário Bruto"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="150dp" />
+
+    <TextView
+        android:id="@+id/edtSalarioBruno"
+        android:layout_width="150dp"
+        android:layout_height="17dp"
+        android:text="0,00"
+        tools:layout_editor_absoluteX="209dp"
+        tools:layout_editor_absoluteY="150dp" />
+
+    <TextView
+        android:layout_width="150dp"
+        android:layout_height="17dp"
+        android:text="INSS"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="178dp" />
+
+    <TextView
+        android:id="@+id/edtINSS"
+        android:layout_width="150dp"
+        android:layout_height="17dp"
+        android:text="0,00"
+        tools:layout_editor_absoluteX="209dp"
+        tools:layout_editor_absoluteY="178dp" />
+
+    <TextView
+        android:layout_width="150dp"
+        android:layout_height="17dp"
+        android:text="IRRF"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="204dp" />
+
+    <TextView
+        android:id="@+id/edtIRRF"
+        android:layout_width="150dp"
+        android:layout_height="17dp"
+        android:text="0,00"
+        tools:layout_editor_absoluteX="209dp"
+        tools:layout_editor_absoluteY="204dp" />
+
+    <TextView
+        android:layout_width="150dp"
+        android:layout_height="17dp"
+        android:text="Outros Descontos"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="230dp" />
+
+    <TextView
+        android:id="@+id/edtOutrosDescontos"
+        android:layout_width="150dp"
+        android:layout_height="17dp"
+        android:text="0,00"
+        tools:layout_editor_absoluteX="209dp"
+        tools:layout_editor_absoluteY="230dp" />
+
+    <TextView
+        android:layout_width="150dp"
+        android:layout_height="17dp"
+        android:text="Salário Líquido"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="294dp" />
+
+    <TextView
+        android:id="@+id/edtLiquido"
+        android:layout_width="150dp"
+        android:layout_height="17dp"
+        android:text="0,00"
+        tools:layout_editor_absoluteX="209dp"
+        tools:layout_editor_absoluteY="294dp" />
+
+    <TextView
+        android:layout_width="150dp"
+        android:layout_height="17dp"
+        android:text="Descontos"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="319dp" />
+
+    <TextView
+        android:id="@+id/edtDescontos"
+        android:layout_width="150dp"
+        android:layout_height="17dp"
+        android:text="0,00"
+        tools:layout_editor_absoluteX="209dp"
+        tools:layout_editor_absoluteY="319dp" />
+
+    <Button
+        android:id="@+id/btnVoltar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="160dp"
+        android:layout_marginTop="368dp"
+        android:text="Voltar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
