@@ -22,92 +22,115 @@
     <TextView
         android:layout_width="150dp"
         android:layout_height="17dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="150dp"
         android:text="Salário Bruto"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="150dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/edtSalarioBruno"
+        android:id="@+id/txtSalarioBruto"
         android:layout_width="150dp"
         android:layout_height="17dp"
+        android:layout_marginStart="209dp"
+        android:layout_marginTop="150dp"
         android:text="0,00"
-        tools:layout_editor_absoluteX="209dp"
-        tools:layout_editor_absoluteY="150dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:layout_width="150dp"
         android:layout_height="17dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="178dp"
         android:text="INSS"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="178dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/edtINSS"
+        android:id="@+id/txtINSS"
         android:layout_width="150dp"
         android:layout_height="17dp"
+        android:layout_marginStart="209dp"
+        android:layout_marginTop="178dp"
         android:text="0,00"
-        tools:layout_editor_absoluteX="209dp"
-        tools:layout_editor_absoluteY="178dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:layout_width="150dp"
         android:layout_height="17dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="204dp"
         android:text="IRRF"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="204dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/edtIRRF"
+        android:id="@+id/txtIRRF"
         android:layout_width="150dp"
         android:layout_height="17dp"
+        android:layout_marginStart="209dp"
+        android:layout_marginTop="204dp"
         android:text="0,00"
-        tools:layout_editor_absoluteX="209dp"
-        tools:layout_editor_absoluteY="204dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:layout_width="150dp"
         android:layout_height="17dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="230dp"
         android:text="Outros Descontos"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="230dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/edtOutrosDescontos"
+        android:id="@+id/txtOutrosDescontos"
         android:layout_width="150dp"
         android:layout_height="17dp"
+        android:layout_marginStart="209dp"
+        android:layout_marginTop="230dp"
         android:text="0,00"
-        tools:layout_editor_absoluteX="209dp"
-        tools:layout_editor_absoluteY="230dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:layout_width="150dp"
         android:layout_height="17dp"
+        android:layout_marginTop="294dp"
         android:text="Salário Líquido"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="294dp" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="16dp" />
 
     <TextView
-        android:id="@+id/edtLiquido"
+        android:id="@+id/txtLiquido"
         android:layout_width="150dp"
         android:layout_height="17dp"
+        android:layout_marginStart="209dp"
+        android:layout_marginTop="294dp"
         android:text="0,00"
-        tools:layout_editor_absoluteX="209dp"
-        tools:layout_editor_absoluteY="294dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:layout_width="150dp"
         android:layout_height="17dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="319dp"
         android:text="Descontos"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="319dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/edtDescontos"
+        android:id="@+id/txtDescontos"
         android:layout_width="150dp"
         android:layout_height="17dp"
+        android:layout_marginStart="209dp"
+        android:layout_marginTop="319dp"
         android:text="0,00"
-        tools:layout_editor_absoluteX="209dp"
-        tools:layout_editor_absoluteY="319dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btnVoltar"

@@ -29,6 +29,7 @@
 
     <EditText
         android:id="@+id/edtSalario"
+        android:text="0.00"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="161dp"
@@ -50,6 +51,7 @@
 
     <EditText
         android:id="@+id/edtDependentes"
+        android:text="0.00"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="161dp"
@@ -70,6 +72,7 @@
 
     <EditText
         android:id="@+id/edtOutros"
+        android:text="0.00"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="161dp"
@@ -86,6 +89,7 @@
         android:layout_marginStart="152dp"
         android:layout_marginTop="341dp"
         android:text="Calcular"
+        android:onClick="calcularSalario"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
