@@ -4,91 +4,135 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
 import java.math.BigDecimal;
 import java.math.MathContext;
+import java.text.DecimalFormat;
 
+/**
+ * @author Willian
+ */
 public class ResultActivity extends AppCompatActivity {
 
+    private int dependentes;
+
+    private double salarioBruto;
+    private double outrosDescontos;
+    
+    private TextView txtSalarioBruto;
+    private TextView txtINSS;
+    private TextView txtIRRF;
+    private TextView txtOutrosDescontos;
+    private TextView txtLiquido;
+    private TextView txtDescontos;
+
+    /**
+     *
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
 
+        Button btnVoltar = (Button) findViewById(R.id.btnVoltar);
+
+        btnVoltar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent);
+            }
+        });
+
         Intent intent = getIntent();
-        BigDecimal salarioBruto = new BigDecimal(intent.getStringExtra(MainActivity.SALARIO_BRUTO));
-        BigDecimal dependentes = new BigDecimal(intent.getStringExtra(MainActivity.DEPENDENTES));
-        BigDecimal outrosDescontos = new BigDecimal(intent.getStringExtra(MainActivity.OUTROS_DESCONTOS));
 
-        BigDecimal descontoINSS = this.calculaINSS(salarioBruto);
-        BigDecimal salarioLiquido = salarioBruto.subtract(descontoINSS);
-        BigDecimal descontoIRRF = this.calculaIRRF(salarioLiquido.subtract(dependentes.multiply(BigDecimal.valueOf(189.59))));
+        this.salarioBruto = intent.getDoubleExtra(MainActivity.SALARIO_BRUTO,0);
+        this.dependentes = intent.getIntExtra(MainActivity.DEPENDENTES,0);
+        this.outrosDescontos = intent.getDoubleExtra(MainActivity.OUTROS_DESCONTOS,0);
 
-        salarioLiquido = salarioLiquido.subtract(descontoIRRF).subtract(outrosDescontos);
-        BigDecimal descontos = descontoINSS.add(descontoIRRF).add(outrosDescontos);
-        BigDecimal porcentagemDesconto = salarioBruto.multiply(descontos.divide(BigDecimal.valueOf(100)));
+        this.txtSalarioBruto = (TextView)findViewById(R.id.txtSalarioBruto);
+        this.txtINSS = (TextView)findViewById(R.id.txtINSS);
+        this.txtIRRF = (TextView)findViewById(R.id.txtIRRF);
+        this.txtOutrosDescontos = (TextView)findViewById(R.id.txtOutrosDescontos);
+        this.txtLiquido = (TextView)findViewById(R.id.txtLiquido);
+        this.txtDescontos = (TextView)findViewById(R.id.txtDescontos);
 
-        TextView txtSalarioBruto = (TextView)findViewById(R.id.txtSalarioBruto);
-        txtSalarioBruto.setText(salarioBruto.toString());
-
-        TextView txtINSS = (TextView)findViewById(R.id.txtINSS);
-        txtINSS.setText(descontoINSS.toString());
-
-        TextView txtIRRF = (TextView)findViewById(R.id.txtIRRF);
-        txtIRRF.setText(descontoIRRF.toString());
-
-        TextView txtOutrosDescontos = (TextView)findViewById(R.id.txtOutrosDescontos);
-        txtOutrosDescontos.setText(outrosDescontos.toString());
-
-        TextView txtLiquido = (TextView)findViewById(R.id.txtLiquido);
-        txtLiquido.setText(salarioLiquido.toString());
-
-        TextView txtDescontos = (TextView)findViewById(R.id.txtDescontos);
-        txtDescontos.setText(porcentagemDesconto.toString()+"%");
-
+        this.calculaSalario();
     }
 
-    private BigDecimal calculaINSS(BigDecimal salario){
-        if (salario.compareTo(BigDecimal.valueOf(1045.01)) == -1){
-            return salario.multiply(BigDecimal.valueOf(0.075));
+    /**
+     *
+     */
+    private void calculaSalario(){
+        double valorINSS = calculaINSS(this.salarioBruto);
+        double baseCalculoIRRF = this.salarioBruto - valorINSS - (this.dependentes * 189.59);
+        double valorIRRF = calculaIRRF(baseCalculoIRRF);
+        double salarioLiquido = this.salarioBruto - valorINSS - valorIRRF - this.outrosDescontos;
+        double percentualDescontos = (1-salarioLiquido/this.salarioBruto)*100;
 
-        } else if (salario.compareTo(BigDecimal.valueOf(1045.00)) == 1 &&
-                salario.compareTo(BigDecimal.valueOf(2089.61)) == -1){
-            return salario.multiply(BigDecimal.valueOf(0.09)).subtract(BigDecimal.valueOf(15.67));
-
-        } else if (salario.compareTo(BigDecimal.valueOf(2089.60)) == 1 &&
-                salario.compareTo(BigDecimal.valueOf(3134.41)) == -1) {
-            return salario.multiply(BigDecimal.valueOf(0.12)).subtract(BigDecimal.valueOf(78.36));
-
-        } else if (salario.compareTo(BigDecimal.valueOf(3134.40)) == 1 &&
-                salario.compareTo(BigDecimal.valueOf(6101.07)) == -1) {
-            return salario.multiply(BigDecimal.valueOf(0.14)).subtract(BigDecimal.valueOf(141.05));
-
-        } else {
-            return BigDecimal.valueOf(713.10);
-        }
+        txtSalarioBruto.setText(String.valueOf(this.formatDouble(salarioBruto)));
+        txtINSS.setText(String.valueOf(this.formatDouble(valorINSS)));
+        txtIRRF.setText(String.valueOf(this.formatDouble(valorIRRF)));
+        txtOutrosDescontos.setText(String.valueOf(this.formatDouble(outrosDescontos)));
+        txtLiquido.setText(String.valueOf(this.formatDouble(salarioLiquido)));
+        txtDescontos.setText(String.valueOf(formatDouble(percentualDescontos))+"%");
     }
 
-    private BigDecimal calculaIRRF(BigDecimal salario){
-        if (salario.compareTo(BigDecimal.valueOf(1903.99)) == -1){
-            return BigDecimal.ZERO;
-
-        } else if (salario.compareTo(BigDecimal.valueOf(1903.98)) == 1 &&
-                salario.compareTo(BigDecimal.valueOf(2826.66)) == -1){
-            return salario.multiply(BigDecimal.valueOf(0.075)).subtract(BigDecimal.valueOf(142.80));
-
-        } else if (salario.compareTo(BigDecimal.valueOf(2826.65)) == 1 &&
-                salario.compareTo(BigDecimal.valueOf(3751.06)) == -1){
-            return salario.multiply(BigDecimal.valueOf(0.15)).subtract(BigDecimal.valueOf(142.80));
-
-        } else if (salario.compareTo(BigDecimal.valueOf(3751.05)) == 1 &&
-                salario.compareTo(BigDecimal.valueOf(4664.69)) == -1){
-            return salario.multiply(BigDecimal.valueOf(0.225)).subtract(BigDecimal.valueOf(636.13));
-
-        } else {
-            return salario.multiply(BigDecimal.valueOf(0.275)).subtract(BigDecimal.valueOf(869.36));
+    /**
+     *
+     * @param salario
+     * @return
+     */
+    private double calculaINSS(double salario){
+        if(salario <= 1045){
+            return salario*0.075;
         }
+        if(salario <= 2089.60){
+            return (salario*0.09) - 15.67;
+        }
+        if(salario <= 3134.40){
+            return (salario*0.12) -78.36;
+        }
+        if(salario <= 6101.06){
+            return (salario*0.14) -141.05;
+        }
+        return 713.10;
+    }
+
+    /**
+     *
+     * @param salario
+     * @return
+     */
+    private double calculaIRRF(double salario){
+        if (salario <= 1903.98){
+            return 0;
+        }
+        if (salario <= 2826.65){
+            return (salario*0.075) - 142.80;
+        }
+        if (salario <= 3751.05){
+            return (salario*0.15) - 354.80;
+        }
+        if (salario <= 4664.68){
+            return (salario*0.225) - 636.13;
+        }
+
+        return (salario*0.275) - 868.36;
+    }
+
+    /**
+     *
+     * @param value
+     * @return
+     */
+    private double formatDouble(double value){
+        DecimalFormat decimalFormat = new DecimalFormat("#.##");
+        return Double.valueOf(decimalFormat.format(value));
     }
 }

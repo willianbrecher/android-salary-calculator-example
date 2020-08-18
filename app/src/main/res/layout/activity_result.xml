@@ -1,145 +1,148 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginTop="50dp"
+    android:orientation="vertical"
     tools:context=".ResultActivity">
 
 
     <TextView
-        android:layout_width="281dp"
-        android:layout_height="17dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
         android:gravity="center"
         android:text="Resultado"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.133" />
+        android:textAlignment="center"
+        android:textColor="#2196F3"
+        android:textSize="24sp"
+        android:textStyle="bold" />
 
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <TextView
-        android:layout_width="150dp"
-        android:layout_height="17dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="150dp"
-        android:text="Salário Bruto"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/txtSalarioBruto"
-        android:layout_width="150dp"
-        android:layout_height="17dp"
-        android:layout_marginStart="209dp"
-        android:layout_marginTop="150dp"
-        android:text="0,00"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+            <TextView
+                android:layout_width="200dp"
+                android:layout_height="17dp"
+                android:layout_marginLeft="20dp"
+                android:text="Salário Bruto" />
 
-    <TextView
-        android:layout_width="150dp"
-        android:layout_height="17dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="178dp"
-        android:text="INSS"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+            <TextView
+                android:id="@+id/txtSalarioBruto"
+                android:layout_width="150dp"
+                android:layout_height="17dp"
+                android:text="0,00"
+                android:textAlignment="textEnd" />
+        </TableRow>
 
-    <TextView
-        android:id="@+id/txtINSS"
-        android:layout_width="150dp"
-        android:layout_height="17dp"
-        android:layout_marginStart="209dp"
-        android:layout_marginTop="178dp"
-        android:text="0,00"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="150dp"
-        android:layout_height="17dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="204dp"
-        android:text="IRRF"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+            <TextView
+                android:layout_width="200dp"
+                android:layout_height="17dp"
+                android:layout_marginLeft="20dp"
+                android:text="INSS" />
 
-    <TextView
-        android:id="@+id/txtIRRF"
-        android:layout_width="150dp"
-        android:layout_height="17dp"
-        android:layout_marginStart="209dp"
-        android:layout_marginTop="204dp"
-        android:text="0,00"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+            <TextView
+                android:id="@+id/txtINSS"
+                android:layout_width="150dp"
+                android:layout_height="17dp"
+                android:text="0,00"
+                android:textAlignment="textEnd" />
+        </TableRow>
 
-    <TextView
-        android:layout_width="150dp"
-        android:layout_height="17dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="230dp"
-        android:text="Outros Descontos"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/txtOutrosDescontos"
-        android:layout_width="150dp"
-        android:layout_height="17dp"
-        android:layout_marginStart="209dp"
-        android:layout_marginTop="230dp"
-        android:text="0,00"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+            <TextView
+                android:layout_width="200dp"
+                android:layout_height="17dp"
+                android:layout_marginLeft="20dp"
+                android:text="IRRF" />
 
-    <TextView
-        android:layout_width="150dp"
-        android:layout_height="17dp"
-        android:layout_marginTop="294dp"
-        android:text="Salário Líquido"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="16dp" />
+            <TextView
+                android:id="@+id/txtIRRF"
+                android:layout_width="150dp"
+                android:layout_height="17dp"
+                android:text="0,00"
+                android:textAlignment="textEnd" />
+        </TableRow>
 
-    <TextView
-        android:id="@+id/txtLiquido"
-        android:layout_width="150dp"
-        android:layout_height="17dp"
-        android:layout_marginStart="209dp"
-        android:layout_marginTop="294dp"
-        android:text="0,00"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="150dp"
-        android:layout_height="17dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="319dp"
-        android:text="Descontos"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+            <TextView
+                android:layout_width="200dp"
+                android:layout_height="17dp"
+                android:layout_marginLeft="20dp"
+                android:text="Outros Descontos" />
 
-    <TextView
-        android:id="@+id/txtDescontos"
-        android:layout_width="150dp"
-        android:layout_height="17dp"
-        android:layout_marginStart="209dp"
-        android:layout_marginTop="319dp"
-        android:text="0,00"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+            <TextView
+                android:id="@+id/txtOutrosDescontos"
+                android:layout_width="150dp"
+                android:layout_height="17dp"
+                android:text="0,00"
+                android:textAlignment="textEnd" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="50dp">
+
+            <TextView
+                android:layout_width="200dp"
+                android:layout_height="17dp"
+                android:layout_marginLeft="20dp"
+                android:text="Salário Líquido" />
+
+            <TextView
+                android:id="@+id/txtLiquido"
+                android:layout_width="150dp"
+                android:layout_height="17dp"
+                android:text="0,00"
+                android:textAlignment="textEnd" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="200dp"
+                android:layout_height="17dp"
+                android:layout_marginLeft="20dp"
+                android:text="Descontos" />
+
+            <TextView
+                android:id="@+id/txtDescontos"
+                android:layout_width="150dp"
+                android:layout_height="17dp"
+                android:text="0,00"
+                android:textAlignment="textEnd" />
+        </TableRow>
+    </TableLayout>
+
 
     <Button
         android:id="@+id/btnVoltar"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="160dp"
-        android:layout_marginTop="368dp"
+        android:layout_margin="30dp"
+        android:background="#2196F3"
         android:text="Voltar"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textColor="#FFFFFF" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
