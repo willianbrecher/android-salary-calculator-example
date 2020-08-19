@@ -1,4 +1,4 @@
 <resources>
-    <string name="app_name">CalculaSalario</string>
+    <string name="app_name">Calculadora de Salário</string>
     <string name="title_activity_result">ResultActivity</string>
 </resources>

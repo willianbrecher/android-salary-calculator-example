@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="30dp"
         android:gravity="center"
-        android:text="Calculadora de Salário Líquido"
+        android:text="Calcular Salário Líquido"
         android:textAlignment="center"
         android:textColor="#2196F3"
         android:textSize="24sp"
@@ -37,7 +37,6 @@
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:inputType="numberDecimal"
-            android:text="0.00"
             android:textAlignment="textEnd" />
 
     </LinearLayout>
@@ -48,11 +47,11 @@
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="157dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="10dp"
-            android:text="Número Dependentes R$"
+            android:text="Número Dependentes"
             android:textAlignment="textEnd" />
 
         <EditText
@@ -61,7 +60,6 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="numberDecimal"
-            android:text="0.00"
             android:textAlignment="textEnd" />
 
     </LinearLayout>
@@ -85,7 +83,6 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="numberDecimal"
-            android:text="0.00"
             android:textAlignment="textEnd" />
     </LinearLayout>
 

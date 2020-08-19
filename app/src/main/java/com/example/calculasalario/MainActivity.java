@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
 
         final EditText edtSalario = findViewById(R.id.edtSalario);
         final EditText edtDependentes = findViewById(R.id.edtDependentes);
@@ -36,9 +37,12 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), ResultActivity.class);
 
-                intent.putExtra(SALARIO_BRUTO, Double.parseDouble(edtSalario.getText().toString()));
-                intent.putExtra(DEPENDENTES, Double.parseDouble(edtDependentes.getText().toString()));
-                intent.putExtra(OUTROS_DESCONTOS, Double.parseDouble(edtOutros.getText().toString()));
+                intent.putExtra(SALARIO_BRUTO, Double.parseDouble(
+                        (edtSalario.getText().toString().isEmpty() ? "0" : edtSalario.getText().toString())));
+                intent.putExtra(DEPENDENTES, Double.parseDouble(
+                        (edtDependentes.getText().toString().isEmpty() ? "0" : edtDependentes.getText().toString())));
+                intent.putExtra(OUTROS_DESCONTOS, Double.parseDouble(
+                        (edtOutros.getText().toString().isEmpty() ? "0" : edtOutros.getText().toString())));
 
                 startActivity(intent);
             }

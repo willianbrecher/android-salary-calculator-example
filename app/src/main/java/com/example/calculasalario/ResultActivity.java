@@ -73,7 +73,7 @@ public class ResultActivity extends AppCompatActivity {
         double baseCalculoIRRF = this.salarioBruto - valorINSS - (this.dependentes * 189.59);
         double valorIRRF = calculaIRRF(baseCalculoIRRF);
         double salarioLiquido = this.salarioBruto - valorINSS - valorIRRF - this.outrosDescontos;
-        double percentualDescontos = (1-salarioLiquido/this.salarioBruto)*100;
+        double percentualDescontos = (this.salarioBruto > 0 ? (1-salarioLiquido/this.salarioBruto)*100 : 0.0);
 
         txtSalarioBruto.setText(String.valueOf(this.formatDouble(salarioBruto)));
         txtINSS.setText(String.valueOf(this.formatDouble(valorINSS)));
